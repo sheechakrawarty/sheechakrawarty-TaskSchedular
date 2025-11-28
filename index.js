@@ -99,8 +99,15 @@ function analyzeTasks(){
         elements.allTasks.innerHTML = 'No Task added..'
     }
     elements.allTasks.innerHTML = '';
+    let algo = elements.algo.value;
+    if(algo == 'imp')
     tasks.sort((a,b)=> a.importance - b.importance);
-    console.log(document.algo);
+    else if(algo == 'eff')
+    tasks.sort((a,b)=> a.effort - b.effort);
+    else if(algo == 'deadline')
+        tasks.sort((a,b)=> new Date(a.dueDate) - new Date(b.dueDate));
+    else
+    console.log(algo);
     for(const task of tasks){
 
         
