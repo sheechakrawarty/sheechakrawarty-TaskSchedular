@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskTracker</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="nav">
+        <h1>TaskTracker</h1>
+    </header>
+    <div class="container">
+        <form class="add-task">
+            <div class="add-task-header">Add task details</div>
+            
+            <div class="task-details"> 
+                <label name="title" for="title" >Title</label>
+                <input id="title" placeholder="enter title" type="text"><br>
+
+                <label for="startDate" name="startdate">Start Date</label>
+                <input id="startDate" type="date" placeholder=" " min="today">
+
+                <label name="dueDate" for="dueDate">Due Date</label>
+                <input id="dueDate" type="date" placeholder="dd-mm-yyyy" ><br>
+
+                <label name="importance" for="importance"> Set Priority</label>
+                <input id="importance" type="number" placeholder="1-10" min="0" max="10"><br>
+
+                <label name = "effort" for="effort">effort(hours)</label>
+                <input id="effort" type="number" placeholder="0" min="0" ><br>
+
+                <label for="description" name="description"> Description</label><br>
+                <textarea id="description" rows="5" placeholder="add description..."></textarea>
+                <button type="submit"  id="addTask">Add Task</button>
+            </div><hr>
+            <div class="json-task-details">
+                <div> For Bulk input, paste here JSON array</div>
+                <label for="json-task" name="json-task"> Json Format: {
+                    "title": " ",
+                    "startDate": "",
+                    "dueDate": "",
+                    "effort": " ",
+                    "importance": "",
+                    "description": ""}</label><br>
+                <textarea type="textarea" id="json-task" rows="2" colm="10" placeholder="json text..."></textarea>
+
+            </div>
+            <button type="submit"  id="addTaskJson">Add Task</button>
+            <div class="Analysis-box">
+                <select name="task-list by" id="analysis-algo" class="analysis-option">
+                    <option value="imp">imp</option>
+                    <option value="eff">eff</option>
+                    <option value="default">def</option>
+                </select>
+                <button type="submit" id="AnalyzeTasks" >Analyze Task</button>
+            </div>
+            
+
+             <div id="added"></div>
+
+        </form>
+       
+        <div class="showTasks" id="tasks"></div>
+
+    </div>
+    
+    
+    
+    <script src="index.js"></script>
+    
+</body>
+</html>
