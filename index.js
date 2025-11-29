@@ -94,7 +94,7 @@ function addTaskFromJson(){
     }
     
 }
-function analyzeTasks(){
+async function analyzeTasks(){
     if(tasks.length == 0){
         elements.allTasks.innerHTML = 'No Task added..'
     }
@@ -106,7 +106,9 @@ function analyzeTasks(){
     tasks.sort((a,b)=> a.effort - b.effort);
     else if(algo == 'deadline')
         tasks.sort((a,b)=> new Date(a.dueDate) - new Date(b.dueDate));
-    else
+    else{
+        tasks.sort((a,b)=>(a.imp*0.9 + a.eff*0.7)-(b.imp*0.9 + b.eff*0.7))
+    }
     console.log(algo);
     for(const task of tasks){
 
